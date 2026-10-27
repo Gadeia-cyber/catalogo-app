@@ -54,7 +54,15 @@ class Filme(Obra):
     def detalhes(self):
         return f"{self.duracao_min} min"
 
+class Serie(Obra):
+    tipo = "Série"
 
+    def __init__(self, titulo, ano, genero, temporadas):
+        super().__init__(titulo, ano, genero)
+        self.temporadas = temporadas
+
+    def detalhes(self):
+        return f"{self.temporadas} temporadas"
 
 def main():
     avaliacao = Avaliacao("Gadeia",5, "Otimo filme")
@@ -72,6 +80,8 @@ def main():
     filme.adicionar_avaliacao(Avaliacao("Carla",10))
     print(filme)
 
+    serie = Serie ("O Mentalista",2017,"Suspense policial", 3)
+    print(serie)
 
 
 if __name__ == "__main__":
